@@ -16,5 +16,3 @@ module Rusholme
     end
   end
 end
-
-Rusholme.start

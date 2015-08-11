@@ -7,7 +7,7 @@ module Rusholme
     end
 
     def send(address, data)
-      @client.send(OSC::Message.new(address , data))
+      @client.send(OSC::Message.new(address, data))
     end
   end
 end
