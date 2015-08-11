@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Minimalist's key input to midi note converter (via OSC)}
   spec.description   = %q{Rusholme lets you convert a keyboard input to MIDI note number, and send them to your MIDI player via OSC.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/5t111111/rusholme"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
