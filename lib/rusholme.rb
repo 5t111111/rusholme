@@ -1,6 +1,7 @@
 require "rusholme/version"
 require 'termios'
 require 'eventmachine'
+require "osc-ruby"
 
 module Rusholme
 
