@@ -39,17 +39,17 @@ module Rusholme
 
     def receive_data(buffer)
       # puts ">>> #{convert_note_to_freq(buffer.ord)}"
-      osc_client = OSCClient.new
-      # osc_client.send("/message", convert_note_to_freq(buffer.ord).to_s)
-      note = KEYBOARD_TABLE.fetch(buffer) { |_k| nil }
-      return unless note
-      puts "#{note} : #{NOTE_TABLE[note]}"
       begin
-        osc_client.send("/#{note}", NOTE_TABLE[note])
+        osc_client = OSCClient.new
       rescue SocketError => e
         puts e.message
         retry
       end
+      # osc_client.send("/message", convert_note_to_freq(buffer.ord).to_s)
+      note = KEYBOARD_TABLE.fetch(buffer) { |_k| nil }
+      return unless note
+      puts "#{note} : #{NOTE_TABLE[note]}"
+      osc_client.send("/#{note}", NOTE_TABLE[note])
     end
   end
 end
