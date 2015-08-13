@@ -42,9 +42,13 @@ module Rusholme
       osc_client = OSCClient.new
       # osc_client.send("/message", convert_note_to_freq(buffer.ord).to_s)
       note = KEYBOARD_TABLE.fetch(buffer) { |_k| nil }
-      if note
-        puts "#{note} : #{NOTE_TABLE[note]}"
+      return unless note
+      puts "#{note} : #{NOTE_TABLE[note]}"
+      begin
         osc_client.send("/#{note}", NOTE_TABLE[note])
+      rescue SocketError => e
+        puts e.message
+        retry
       end
     end
   end
