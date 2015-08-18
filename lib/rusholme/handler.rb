@@ -49,7 +49,7 @@ module Rusholme
       note = KEYBOARD_TABLE.fetch(buffer) { |_k| nil }
       return unless note
       puts "#{note} : #{NOTE_TABLE[note]}"
-      osc_client.send("/#{note}", NOTE_TABLE[note])
+      osc_client.send("/note", NOTE_TABLE[note])
     end
   end
 end
