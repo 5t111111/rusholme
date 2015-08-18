@@ -19,7 +19,7 @@ module Rusholme
       note = Noone::KEYBOARD_TABLE.fetch(buffer) { |_k| nil }
       return unless note
       puts "#{note} : #{Noone::NOTE_TABLE[note]}"
-      osc_client.send("/#{note}", Noone::NOTE_TABLE[note])
+      osc_client.send("/note", Noone::NOTE_TABLE[note])
     end
   end
 end
